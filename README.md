@@ -22,10 +22,26 @@ or add
 to the require section of your `composer.json` file.
 
 
+Apply migrations by following command:
+```bash
+php yii migrate --migrationPath="@vendor/justcoded/yii2-filestorage/migrations"
+```
+
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your ActiveRecord model by:
 
 ```php
-<?= \justcoded\files\AutoloadExample::widget(); ?>```
+// One to Many
+public function getFiles()
+{
+    return $this->morphMany(FlyFile::class, 'fileable', ['attribute' => 'files'], 'fly_file_relation', 'file_id');
+}
+
+// One to One
+public function getAvatar()
+{
+    return $this->morphOne(FlyFile::class, 'fileable', ['attribute' => 'avatar'], 'fly_file_relation', 'file_id');
+}
+```

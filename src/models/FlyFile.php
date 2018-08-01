@@ -2,8 +2,8 @@
 
 namespace justcoded\yii2\filestorage\models;
 
-use justcoded\yii2\filestorage\db\MorphRelationsTrait;
 use justcoded\yii2\filestorage\storage\Filestorage;
+use justcoded\yii2\morph\db\MorphRelationsTrait;
 use League\Flysystem\Filesystem;
 use Yii;
 use yii\base\InvalidConfigException;
