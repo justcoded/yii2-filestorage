@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist justcoded/yii2-files "*"
+composer require --prefer-dist justcoded/yii2-filestorage "*"
 ```
 
 or add
 
 ```
-"justcoded/yii2-files": "*"
+"justcoded/yii2-filestorage": "*"
 ```
 
 to the require section of your `composer.json` file.
