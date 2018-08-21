@@ -27,6 +27,15 @@ Apply migrations by following command:
 php yii migrate --migrationPath="@vendor/justcoded/yii2-filestorage/migrations"
 ```
 
+Add application component to configuration file:
+```php
+'storage' => [
+    'class' => \justcoded\yii2\filestorage\storage\Filestorage::class,
+    'adapter' => \justcoded\yii2\filestorage\storage\adapters\LocalAdapter::class,
+    'adapterConfig' => [Yii::getAlias('files')]
+],
+```
+
 Usage
 -----
 
