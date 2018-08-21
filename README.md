@@ -54,3 +54,36 @@ public function getAvatar()
     return $this->morphOne(FlyFile::class, 'fileable', ['attribute' => 'avatar'], 'fly_file_relation', 'file_id');
 }
 ```
+
+In controller:
+
+```php
+public function actions()
+{
+    return [
+        'avatar' => [
+            'class' => UploadAction::class,
+            'storage' => 'storage',
+            'model' => User::class,
+            'relation' => 'avatar',
+            'attribute' => 'avatar',
+        ],
+        'media' => [
+            'class' => UploadAction::class,
+            'storage' => 'storage',
+            'model' => User::class,
+            'relation' => 'files',
+            'attribute' => 'file',
+            'multiple' => true,
+        ],
+        'delete' => [
+            'class' => DeleteAction::class,
+        ],
+        'resize' => [
+            'class' => ImageResizeAction::class,
+        ]
+    ];
+}
+```
+
+
